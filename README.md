@@ -8,6 +8,11 @@ Para baixar o repositorio copie o comando abaixo:
 git@github.com:moveup-academy/api-producs.git
 ```
 
+Para configurar as conexões do banco de dados
+
+- Substitua o nome .env.example para .env
+- Substitua as configurações da variável DATABASE_URL para as configurações do seu banco.
+
 Para instalar as dependências execute o comando abaixo
 
 ```script
