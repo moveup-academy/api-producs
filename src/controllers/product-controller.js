@@ -15,44 +15,40 @@ module.exports = {
   async findById(req, res) {},
   async create(req, res) {
     try {
-        const produtosParaInserir = [
-          {
-            name: "Televisão",
-            description: "Televisão 50 polegadas",
-            price: 5999.9,
-            amount: 10
-        },
-        {
-            name: "Playstation 5",
-            description: "Video game playstation 5 slim",
-            price: 4999.9,
-            amount: 5
-        },
-        {
-            name: "Maquina de lavar",
-            description: "Maquina de lavar 12 quilos",
-            price: 2000,
-            amount: 15
-        },
-        {
-            name: "Celular Samsung",
-            description: "Celular Samsung A52",
-            price: 1890.9,
-            amount: 3
-        }
-    ];
-    const result = await client.product.createMany({
-        data: produtosParaInserir 
-    });
+      /**
+       *  1º Percorrer o array "data" ok
+       *  2º Incluir o item no banco de dados ok
+       *  3º Retornar o array adicionado ok
+       */
+    
+      // const response = [];
 
-    console.log(result);
-    return res.status(201).json();
+      // for(let i = 0; i < data.length; i++) {
+      //   const result = await client.product.create({
+      //     data: {
+      //       amount: data[i].amount, // 10
+      //       name: data[i].name, // televisao
+      //       price: data[i].price, // Televisão 50 polegadas
+      //       description: data[i].description, // 5999.9
+      //     }
+      //   })
 
-  } catch (error) {
+      //   response.push(result)
+      // }
+
+      const response = await client.product.createMany({
+          data
+      });
+
+      // console.log(result);
+      
+      return res.status(201).json({ data, response }); // retorna para o cliente
+    } catch (error) {
       console.error("Error creating the product:", error);
       res.status(500).send("Error creating the product.");
-  }
+    }
 },
   async update(req, res) {},
+  
   async delete(req, res) {},
 };
