@@ -14,17 +14,45 @@ module.exports = {
   },
   async findById(req, res) {},
   async create(req, res) {
-    // Percorrer o array [data] e incluir todos os produtos na tabela
-    // para incluir o produto usar a função [await client.product.create({ data: product })]
+    try {
+        const produtosParaInserir = [
+          {
+            name: "Televisão",
+            description: "Televisão 50 polegadas",
+            price: 5999.9,
+            amount: 10
+        },
+        {
+            name: "Playstation 5",
+            description: "Video game playstation 5 slim",
+            price: 4999.9,
+            amount: 5
+        },
+        {
+            name: "Maquina de lavar",
+            description: "Maquina de lavar 12 quilos",
+            price: 2000,
+            amount: 15
+        },
+        {
+            name: "Celular Samsung",
+            description: "Celular Samsung A52",
+            price: 1890.9,
+            amount: 3
+        }
+    ];
+    const result = await client.product.createMany({
+        data: produtosParaInserir 
+    });
 
-    // crie um array e de um push para adicionar o produtor criado
-
-    /**
-     *
-     */
-
+    console.log(result);
     return res.status(201).json();
-  },
+
+  } catch (error) {
+      console.error("Error creating the product:", error);
+      res.status(500).send("Error creating the product.");
+  }
+},
   async update(req, res) {},
   async delete(req, res) {},
 };
