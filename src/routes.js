@@ -14,7 +14,8 @@ router.get('/product/:id', productsController.findById);
 // Post Criar
 router.post('/product', productsController.create);
 // Put ou Patch atualizar
-router.put('/product/:id', productsController.update);
+router.put('/product/:id', productsController.updateAll);
+router.patch('/product/:id', productsController.updatePrice);
 // Delete deletar
 router.delete('/product/:id', productsController.delete);
 

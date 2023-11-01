@@ -22,5 +22,11 @@
     "description": "Celular Samsung A52",
     "price": 1890.9,
     "amount": 3
+  },
+  {
+    "name": "Geladeira",
+    "description": "gela bastante",
+    "price": 3000.0,
+    "amount": 1
   }
 ]
